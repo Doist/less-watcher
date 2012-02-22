@@ -1,5 +1,5 @@
 less-watcher is a script that can watch a directory and recompile your .less scripts if they change.
-It's very useful for development - you basically don't need to think about recompiling your Less files.
+It's useful for development as you don't need to think about recompiling your Less files.
 
 It searches in a recursive manner so sub-directories are handled as well.
 
