@@ -23,7 +23,7 @@
 #
 # Run this to watch for changes in a specified directory:
 #
-#       less-watcher ~/Desktop/my_project
+#       less-watcher -d ~/Desktop/my_project
 #
 # less-watcher requires:
 #
