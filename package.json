@@ -12,7 +12,8 @@
     "engines": {
         "node":            ">=0.2.0",
         "watcher_lib":     ">=1.1.0",
-        "optimist":        ">=0.3.1"
+        "optimist":        ">=0.3.1",
+        "docco":           ">=0.3.0"
     },
 
     "directories": {
