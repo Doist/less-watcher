@@ -44,6 +44,9 @@ specs = require('optimist')
         .default('t', '.')
         .describe('t', 'Specify which directory to compile.')
 
+        .default('f', '*.less')
+        .describe('t', 'Specify which file to compile.')
+
         .default('p', '.less.')
         .describe('p', 'Which prefix should the compiled files have? Default is style.less will be compiled to .less.style.css.')
 
@@ -67,7 +70,8 @@ watcher_lib = require 'watcher_lib'
 # Searches through a directory structure for *.less files using `find`.
 # For each .less file it runs `compileIfNeeded` to compile the file if it's modified.
 findLessFiles = (dir) ->
-    watcher_lib.findFiles('*.less', dir, compileIfNeeded)
+    targetFiles = if argv.f == true then '' else argv.f
+    watcher_lib.findFiles("#{targetFiles}", dir, compileIfNeeded)
 
 
 # Keeps a track of modified times for .less files in a in-memory object,
