@@ -45,7 +45,7 @@ specs = require('optimist')
         .describe('t', 'Specify which directory to compile.')
 
         .default('f', '*.less')
-        .describe('t', 'Specify which file to compile.')
+        .describe('f', 'Specify which file to compile.')
 
         .default('p', '.less.')
         .describe('p', 'Which prefix should the compiled files have? Default is style.less will be compiled to .less.style.css.')
