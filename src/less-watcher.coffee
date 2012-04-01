@@ -86,12 +86,10 @@ compileIfNeeded = (file) ->
 compileLessScript = (file) ->
     prefix = if argv.p == true then '' else argv.p
     targetDir = if argv.t == true then '' else argv.t
+    targetFiles = if argv.f == '*.less' then file else argv.f
 
     fnGetOutputFile = (file) -> file.replace(/([^\/\\]+)\.less/, "#{targetDir + prefix}$1.css")
-    if argv.f == '*.less'
-        watcher_lib.compileFile("lessc #{file}", file, fnGetOutputFile)
-    else
-        watcher_lib.compileFile("lessc #{argv.f}", argv.f, fnGetOutputFile)
+    watcher_lib.compileFile("lessc #{targetFiles}", targetFiles, fnGetOutputFile)
 
 
 # Starts a poller that polls each second in a directory that's
