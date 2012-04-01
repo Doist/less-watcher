@@ -70,8 +70,7 @@ watcher_lib = require 'watcher_lib'
 # Searches through a directory structure for *.less files using `find`.
 # For each .less file it runs `compileIfNeeded` to compile the file if it's modified.
 findLessFiles = (dir) ->
-    targetFiles = if argv.f == true then '' else argv.f
-    watcher_lib.findFiles("#{targetFiles}", dir, compileIfNeeded)
+    watcher_lib.findFiles('*.less', dir, compileIfNeeded)
 
 
 # Keeps a track of modified times for .less files in a in-memory object,
@@ -87,8 +86,12 @@ compileIfNeeded = (file) ->
 compileLessScript = (file) ->
     prefix = if argv.p == true then '' else argv.p
     targetDir = if argv.t == true then '' else argv.t
+
     fnGetOutputFile = (file) -> file.replace(/([^\/\\]+)\.less/, "#{targetDir + prefix}$1.css")
-    watcher_lib.compileFile("lessc #{file}", file, fnGetOutputFile)
+    if argv.f == '*.less'
+        watcher_lib.compileFile("lessc #{file}", file, fnGetOutputFile)
+    else
+        watcher_lib.compileFile("lessc #{argv.f}", argv.f, fnGetOutputFile)
 
 
 # Starts a poller that polls each second in a directory that's
