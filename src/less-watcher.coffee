@@ -85,7 +85,7 @@ compileIfNeeded = (file) ->
 # Compiles a file using `lessc`. Compilation errors are printed out to stdout.
 compileLessScript = (file) ->
     prefix = if argv.p == true then '' else argv.p
-    targetDir = if argv.t == true then '' else argv.t
+    targetDir = if argv.t == '.' then '' else argv.t
     targetFiles = if argv.f == '*.less' then file else argv.f
 
     fnGetOutputFile = (file) -> file.replace(/([^\/\\]+)\.less/, "#{targetDir + prefix}$1.css")
