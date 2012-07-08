@@ -1,3 +1,5 @@
+before_script:
+  coffee -c -o lib src
 language: node_js
 node_js:
   - 0.4
