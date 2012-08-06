@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/Layzie/less-watcher.png?branch=target_dir_opt)](http://travis-ci.org/Layzie/less-watcher)
+
 less-watcher is a script that can watch a directory and recompile your .less scripts if they change.
 It's useful for development as you don't need to think about recompiling your Less files.
 

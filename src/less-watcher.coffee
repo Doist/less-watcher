@@ -41,6 +41,12 @@ specs = require('optimist')
         .default('d', '.')
         .describe('d', 'Specify which directory to scan.')
 
+        .default('t', '.')
+        .describe('t', 'Specify which directory to compile.')
+
+        .default('f', '*.less')
+        .describe('f', 'Specify which file to compile.')
+
         .default('p', '.less.')
         .describe('p', 'Which prefix should the compiled files have? Default is style.less will be compiled to .less.style.css.')
 
@@ -79,8 +85,11 @@ compileIfNeeded = (file) ->
 # Compiles a file using `lessc`. Compilation errors are printed out to stdout.
 compileLessScript = (file) ->
     prefix = if argv.p == true then '' else argv.p
-    fnGetOutputFile = (file) -> file.replace(/([^\/\\]+)\.less/, "#{prefix}$1.css")
-    watcher_lib.compileFile("lessc #{ file }", file, fnGetOutputFile)
+    targetDir = if argv.t == '.' then '' else argv.t
+    targetFiles = if argv.f == '*.less' then file else argv.f
+
+    fnGetOutputFile = (file) -> file.replace(/([^\/\\]+)\.less/, "#{targetDir + prefix}$1.css")
+    watcher_lib.compileFile("lessc #{targetFiles}", targetFiles, fnGetOutputFile)
 
 
 # Starts a poller that polls each second in a directory that's
