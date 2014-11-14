@@ -10,10 +10,14 @@
     }],
 
     "engines": {
-        "node":            ">=0.2.0",
+        "node":            ">=0.2.0"
+    },
+    
+    "dependencies": {
         "watcher_lib":     ">=1.1.0",
         "optimist":        ">=0.3.1",
-        "docco":           ">=0.3.0"
+        "docco":           ">=0.3.0",
+        "less":            "=2.0.0"
     },
 
     "directories": {
