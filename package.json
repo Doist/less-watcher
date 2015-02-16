@@ -29,6 +29,12 @@
     "bin": {
         "less-watcher":      "./bin/less-watcher"
     },
+
+    "dependencies" : {
+        "watcher_lib":     "latest",
+        "optimist":        "latest"
+    },
+
     "devDependencies": {
       "coffee-script": "latest"
     }
